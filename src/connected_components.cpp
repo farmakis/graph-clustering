@@ -42,8 +42,12 @@ std::vector<int> max_propagation(const std::vector<int>& V, const std::vector<in
     for (size_t i = 0; i < num_edges; ++i) {
         int src = edges[2*i];
         int dst = edges[2*i+1];
-        #pragma omp atomic
-        V_max[dst] = std::max(V_max[dst], V[src]);
+        #pragma omp critical
+        {
+            if (V[src] > V_max[dst]) {
+                V_max[dst] = V[src];
+            }
+        }
     }
     // Keep original value if it was higher
     for (int i = 0; i < N; ++i) {
