@@ -1,0 +1,17 @@
+[build-system]
+requires = ["scikit-build-core >= 0.5", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pygraphclustering"
+version = "1.0.0"
+description = "High-performance C++ graph clustering with Python bindings"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "FARMAKIS Ioannis", email = "i.farmakis@icloud.com"},
+]
+
+[tool.scikit-build]
+cmake.args = ["-DBUILD_PYTHON_BINDINGS=ON", "-DBUILD_CLI=OFF"]
+install.components = ["python_modules"]

@@ -1,0 +1,8 @@
+test_cpp
+build
+*pycache__/
+*.so
+*.pyc
+*.pcd
+*.exe
+*.dll
