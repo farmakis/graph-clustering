@@ -1,5 +1,6 @@
 test_cpp
 build
+.vscode
 *pycache__/
 *.so
 *.pyc
