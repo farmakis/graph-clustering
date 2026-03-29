@@ -3,7 +3,7 @@
 #include "dbscan.h"
 
 
-namespace gc {
+namespace gcl {
 std::vector<int> dbscan(
     int N, 
     const std::vector<int>& edges, 
@@ -28,4 +28,4 @@ std::vector<int> dbscan(
     // ... continue with Weakly Connected Components using edges_eps
     return labels;
 }
-} // namespace gc
+} // namespace gcl

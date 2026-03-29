@@ -1,15 +1,16 @@
 import unittest
-import pygraphclustering as pygc
 import open3d as o3d
 import numpy as np
 from matplotlib import pyplot as plt
+
+import pygcl # This is the name of the Python module created by pybind11, matching the name in CMakeLists.txt
 
 class TestBindings(unittest.TestCase):
     def test_wcc(self):
         num_nodes = 5
         edges = [0, 1, 1, 2, 3, 4]
         expected_result = [0, 0, 0, 1, 1]  # Assuming nodes 0,1,2 are in one component and 3,4 are in separate components
-        result = pygc.connected_components(num_nodes, edges)
+        result = pygcl.connected_components(num_nodes, edges)
         print("WCC Result:", result)
         self.assertIsInstance(result, list)
         self.assertEqual(result, expected_result)
@@ -26,7 +27,7 @@ class TestBindings(unittest.TestCase):
                     edge_pairs.extend([i, j])
 
         edges = np.array(edge_pairs).flatten().tolist()
-        labels = pygc.connected_components(num_nodes, edges)
+        labels = pygcl.connected_components(num_nodes, edges)
 
         max_label = np.asarray(labels).max()
         print(f"Number of clusters: {max_label + 1}")

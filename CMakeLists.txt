@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.15)
 
 project( GRAPH_CLUSTERING_LIB )
 
+# Build the static library with -fPIC so it can be linked into shared objects
 add_library( ${PROJECT_NAME} STATIC )
+set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # To remove very annoying "NO ARGUMENTS THAT DEPEND ON A TEMPLATE PARAMETER" errors with G++!
 if( UNIX OR MINGW )
