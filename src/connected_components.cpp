@@ -165,6 +165,6 @@ std::vector<int> wcc_by_max_propagation(
 namespace gcl {
 std::vector<int> connected_components(int N, const std::vector<int>& edges) 
 {
-    return wcc_by_max_propagation(N, edges, true);
+    return wcc_by_max_propagation(N, edges);
 }
 } // namespace gcl
